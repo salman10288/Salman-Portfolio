@@ -9,7 +9,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 export function SmoothScrollProvider({ children }: PropsWithChildren) {
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reducedMotion) return;
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    const desktopScreen = window.matchMedia("(min-width: 1024px)").matches;
+    if (reducedMotion || !finePointer || !desktopScreen) return;
 
     gsap.registerPlugin(ScrollTrigger);
 

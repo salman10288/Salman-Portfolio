@@ -82,7 +82,7 @@ export function About() {
                       src="/images/salman-portrait.png"
                       alt="Salman Saeed, full stack developer"
                       fill
-                      unoptimized
+                      loading="lazy"
                       sizes="(max-width: 1024px) 68vw, 330px"
                       className="scale-[1.035] object-cover object-center"
                     />
