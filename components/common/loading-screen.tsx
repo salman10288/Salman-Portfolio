@@ -28,7 +28,7 @@ export function LoadingScreen({ visible, onComplete }: LoadingScreenProps) {
     } catch {
       // Storage can be unavailable in privacy-restricted browser contexts.
     }
-    const duration = reducedMotion ? 220 : hasVisited ? 760 : 1180;
+    const duration = reducedMotion ? 160 : hasVisited ? 420 : 700;
     const start = performance.now();
     let frame = 0;
     let completionTimer: number | undefined;
@@ -46,7 +46,7 @@ export function LoadingScreen({ visible, onComplete }: LoadingScreenProps) {
         } catch {
           // The visual loader does not depend on storage being available.
         }
-        completionTimer = window.setTimeout(onComplete, reducedMotion ? 20 : 120);
+        completionTimer = window.setTimeout(onComplete, reducedMotion ? 20 : 70);
       }
     };
 
@@ -64,7 +64,7 @@ export function LoadingScreen({ visible, onComplete }: LoadingScreenProps) {
         <motion.div
           className="loader-shell fixed inset-0 z-[200] overflow-hidden bg-[#040609]"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.015, transition: { duration: 0.55, ease: [0.65, 0, 0.35, 1] } }}
+          exit={{ opacity: 0, scale: 1.01, transition: { duration: 0.35, ease: [0.65, 0, 0.35, 1] } }}
           role="progressbar"
           aria-live="polite"
           aria-label="Loading portfolio"

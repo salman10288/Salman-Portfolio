@@ -38,6 +38,7 @@ export function Showcase() {
   const reducedMotion = useReducedMotion();
   const canvasRef = useRef<HTMLDivElement>(null);
   const canvasReady = useInView(canvasRef, { once: true, margin: "320px 0px" });
+  const canvasInView = useInView(canvasRef, { margin: "120px 0px" });
   const renderRealtimeScene = useMediaQuery("(min-width: 760px)");
   const webglSupported = useWebGLSupport();
   const [sceneReady, setSceneReady] = useState(false);
@@ -107,6 +108,7 @@ export function Showcase() {
                 >
                   <ShowcaseCanvas
                     reducedMotion={Boolean(reducedMotion)}
+                    active={canvasInView}
                     onReady={() => setSceneReady(true)}
                   />
                 </motion.div>

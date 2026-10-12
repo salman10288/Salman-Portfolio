@@ -26,6 +26,15 @@ html {
   scrollbar-width: thin;
 }
 
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
 html.is-loading {
   overflow: hidden;
 }
@@ -88,6 +97,11 @@ canvas {
 }
 section[id] {
   scroll-margin-top: 6.5rem;
+}
+
+main > section:not(#home):not(#work) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 
 
@@ -1322,7 +1336,7 @@ section[id] {
 .showcase-fallback__panel i:nth-of-type(2) { width:62%; background:rgba(0,229,255,.32); }
 .showcase-fallback__panel i:nth-of-type(3) { width:45%; }
 
-/* Professional 3D refresh loader */
+/* Compact cinematic loader */
 .loader-grid { position:absolute; inset:0; opacity:.34; background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px); background-size:58px 58px; mask-image:radial-gradient(circle at center,#000 12%,transparent 78%); }
 .loader-noise { position:absolute; inset:0; opacity:.035; }
 .loader-brand { position:absolute; left:clamp(1.25rem,4vw,3.5rem); top:clamp(1.25rem,4vw,3rem); display:flex; align-items:center; gap:12px; }
@@ -1367,7 +1381,6 @@ section[id] {
 @keyframes loader-orbit-reverse { from { transform:rotateY(66deg) rotateZ(0); } to { transform:rotateY(66deg) rotateZ(-360deg); } }
 @keyframes loader-cube { from { transform:rotateX(-18deg) rotateY(0); } to { transform:rotateX(342deg) rotateY(360deg); } }
 @keyframes loader-shadow { 0%,100% { scale:.8; opacity:.4; } 50% { scale:1.08; opacity:.7; } }
-
 @media (max-width: 760px) {
   .hero-fallback__tech--angular,
   .hero-fallback__tech--typescript { display:none; }

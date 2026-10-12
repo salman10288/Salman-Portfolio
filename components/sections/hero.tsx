@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import {
   FiArrowDown,
   FiArrowRight,
@@ -29,13 +29,30 @@ const titleLines = ["FULL STACK", "DEVELOPER"];
 
 export function Hero() {
   const reducedMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const sceneInView = useInView(sectionRef, { margin: "160px 0px" });
   const renderRealtimeScene = useMediaQuery("(min-width: 760px)");
   const webglSupported = useWebGLSupport();
   const [sceneReady, setSceneReady] = useState(false);
-  const canRenderCanvas = renderRealtimeScene && webglSupported === true;
+  const [allowRealtimeScene, setAllowRealtimeScene] = useState(false);
+  const canRenderCanvas = allowRealtimeScene && renderRealtimeScene && webglSupported === true;
+
+  useEffect(() => {
+    if (!renderRealtimeScene || webglSupported !== true) return;
+
+    const reveal = () => setAllowRealtimeScene(true);
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(reveal, { timeout: 1200 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timer = setTimeout(reveal, 500);
+    return () => clearTimeout(timer);
+  }, [renderRealtimeScene, webglSupported]);
 
   return (
     <section
+      ref={sectionRef}
       id="home"
       className="relative isolate flex min-h-[100svh] overflow-hidden border-b border-white/[0.055] pt-24"
     >
@@ -51,6 +68,7 @@ export function Hero() {
             >
               <HeroCanvas
                 reducedMotion={Boolean(reducedMotion)}
+                active={sceneInView}
                 onReady={() => setSceneReady(true)}
               />
             </motion.div>

@@ -11,6 +11,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 
 interface ShowcaseCanvasProps {
   reducedMotion?: boolean;
+  active?: boolean;
   onReady?: () => void;
 }
 
@@ -166,7 +167,7 @@ function Scene({ reducedMotion, compact, onReady }: { reducedMotion: boolean; co
       <spotLight position={[4, 5, 1]} intensity={36} angle={0.45} penumbra={1} color="#00ffb2" />
       <pointLight position={[0, 0.5, 3]} intensity={16} color="#ff8a00" distance={7} />
       <Island reducedMotion={reducedMotion} />
-      <ContactShadows position={[0, -1.46, 0]} opacity={0.55} scale={7} blur={2.6} far={4} resolution={compact ? 256 : 512} color="#001a22" />
+      <ContactShadows position={[0, -1.46, 0]} opacity={0.55} scale={7} blur={2.6} far={4} resolution={compact ? 256 : 512} frames={1} color="#001a22" />
       <Sparkles count={compact ? 28 : 65} scale={[7, 5, 5]} size={1.4} speed={reducedMotion ? 0 : 0.22} color="#b6fbff" opacity={0.52} />
       <CameraRig reducedMotion={reducedMotion} />
       <SceneReady onReady={onReady} />
@@ -180,16 +181,16 @@ function Scene({ reducedMotion, compact, onReady }: { reducedMotion: boolean; co
   );
 }
 
-export default function ShowcaseCanvas({ reducedMotion = false, onReady }: ShowcaseCanvasProps) {
+export default function ShowcaseCanvas({ reducedMotion = false, active = true, onReady }: ShowcaseCanvasProps) {
   const compact = useMediaQuery("(max-width: 900px)", true);
 
   return (
     <div className="absolute inset-0" aria-hidden="true">
       <Canvas
         shadows={!compact}
-        dpr={compact ? [1, 1.2] : [1, 1.6]}
+        dpr={compact ? [1, 1.1] : [1, 1.35]}
         camera={{ position: [0, 1.05, 7.4], fov: compact ? 48 : 42, near: 0.1, far: 35 }}
-        frameloop={reducedMotion ? "demand" : "always"}
+        frameloop={reducedMotion || !active ? "demand" : "always"}
         gl={{ antialias: !compact, alpha: true, powerPreference: "high-performance" }}
         onCreated={({ gl }) => {
           gl.setClearColor("#000000", 0);

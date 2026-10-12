@@ -8,7 +8,6 @@ import {
   ContactShadows,
   Float,
   Html,
-  Preload,
   RoundedBox,
   Sparkles,
 } from "@react-three/drei";
@@ -28,6 +27,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 
 interface HeroCanvasProps {
   reducedMotion?: boolean;
+  active?: boolean;
   onReady?: () => void;
 }
 
@@ -310,6 +310,7 @@ function Scene({ reducedMotion, compact, onReady }: { reducedMotion: boolean; co
         blur={2.7}
         far={4.2}
         resolution={compact ? 256 : 512}
+        frames={1}
         color="#001b22"
       />
       <Sparkles
@@ -330,21 +331,20 @@ function Scene({ reducedMotion, compact, onReady }: { reducedMotion: boolean; co
         </EffectComposer>
       ) : null}
       <AdaptiveDpr />
-      <Preload all />
     </>
   );
 }
 
-export default function HeroCanvas({ reducedMotion = false, onReady }: HeroCanvasProps) {
+export default function HeroCanvas({ reducedMotion = false, active = true, onReady }: HeroCanvasProps) {
   const compact = useMediaQuery("(max-width: 900px)", true);
 
   return (
     <div className="absolute inset-0" aria-hidden="true">
       <Canvas
         shadows={!compact}
-        dpr={compact ? [1, 1.25] : [1, 1.75]}
+        dpr={compact ? [1, 1.15] : [1, 1.4]}
         camera={{ position: [0.2, 1.12, 7.2], fov: compact ? 48 : 42, near: 0.1, far: 40 }}
-        frameloop={reducedMotion ? "demand" : "always"}
+        frameloop={reducedMotion || !active ? "demand" : "always"}
         gl={{ antialias: !compact, alpha: true, powerPreference: "high-performance" }}
         onCreated={({ gl }) => {
           gl.setClearColor("#000000", 0);
