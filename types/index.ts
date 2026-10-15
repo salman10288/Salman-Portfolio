@@ -41,7 +41,7 @@ export interface ExperienceItem {
 }
 
 export interface ProjectItem {
-  slug: "kickarena" | "noor-travel" | "gaming-dashboard" | "angular-enterprise";
+  slug: "dabb-tech" | "kickarena" | "tamr" | "kingdom-land";
   index: string;
   title: string;
   category: string;

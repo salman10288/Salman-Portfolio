@@ -40,7 +40,7 @@ function ProjectCard({ project, horizontal }: ProjectCardProps) {
           <div className="relative min-w-0">
             <div className="flex items-start justify-between gap-4 sm:gap-6">
               <span className="shrink-0 font-mono text-sm text-cyan-200/55">
-                {project.index} / 04
+                {project.index} / {String(projects.length).padStart(2, "0")}
               </span>
               <span className="max-w-[66%] rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-right text-[0.58rem] font-semibold uppercase leading-4 tracking-[0.14em] text-white/38 sm:text-[0.62rem]">
                 {project.category}
@@ -183,7 +183,7 @@ export function Projects() {
                 <span className="text-white/34">Systems with purpose.</span>
               </>
             }
-            description="Selected product work and private concepts presented as immersive interface studies. Public links are shown only where available."
+            description="A product engineering studio and a collection of live game experiences, presented as immersive interface studies. Explore each project through its production website."
           />
           <div className="mb-2 hidden items-center gap-3 lg:flex">
             <span className="h-px w-16 bg-gradient-to-r from-transparent to-white/20" />

@@ -127,8 +127,19 @@ export const education = {
 
 export const projects: ProjectItem[] = [
   {
-    slug: "kickarena",
+    slug: "dabb-tech",
     index: "01",
+    title: "DABB Tech",
+    category: "Product engineering studio",
+    description:
+      "A high-impact digital presence for a product engineering studio building custom software, mobile apps, AI systems and live games. The experience brings the studio's capabilities, selected work and international footprint into one polished, performance-minded platform.",
+    tags: ["Product Design", "Web Development", "Game Development", "AI"],
+    liveUrl: "https://www.dabb.co/",
+    accent: "orange",
+  },
+  {
+    slug: "kickarena",
+    index: "02",
     title: "KickArena",
     category: "Football gaming experience",
     description:
@@ -138,33 +149,25 @@ export const projects: ProjectItem[] = [
     accent: "cyan",
   },
   {
-    slug: "noor-travel",
-    index: "02",
-    title: "Noor-ul-Harmain Travel",
-    category: "Bilingual travel platform",
+    slug: "tamr",
+    index: "03",
+    title: "TAMR — The Date Farm",
+    category: "Farming game experience",
     description:
-      "A premium English and Urdu travel platform concept for Umrah, Hajj, visas, hotels, flights and managed bookings, supported by a custom administration workflow and lead-generation system.",
-    tags: ["Next.js", "Node.js", "MongoDB", "i18n"],
+      "A characterful browser-based farming game centered on growing and managing a date farm. The experience pairs playful world-building with an approachable interface and a distinctive regional identity.",
+    tags: ["Web Game", "Game UI", "Responsive Design", "Interactive Experience"],
+    liveUrl: "https://tamr.net/",
     accent: "green",
   },
   {
-    slug: "gaming-dashboard",
-    index: "03",
-    title: "Gaming Dashboard",
-    category: "Product analytics system",
-    description:
-      "A private game-owner dashboard concept that turns player, revenue, payment and engagement signals into a focused operational interface with clear hierarchy and actionable states.",
-    tags: ["Angular", "TypeScript", "Charts", "REST APIs"],
-    accent: "orange",
-  },
-  {
-    slug: "angular-enterprise",
+    slug: "kingdom-land",
     index: "04",
-    title: "Angular Enterprise Dashboard",
-    category: "Enterprise UI architecture",
+    title: "Kingdom Land",
+    category: "Fantasy game experience",
     description:
-      "A reusable Angular application shell designed around role-aware navigation, API-driven modules, reliable state handling and responsive interfaces for complex business workflows.",
-    tags: ["Angular", "RxJS", "Node.js", "MongoDB"],
+      "A fantasy-themed browser game presented through an immersive landing experience. Strong world-building, game-focused calls to action and responsive interaction invite players to step into its kingdom.",
+    tags: ["Web Game", "Fantasy UI", "Responsive Design", "Interactive Experience"],
+    liveUrl: "https://kingdomland.net/",
     accent: "violet",
   },
 ];
