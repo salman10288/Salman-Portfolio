@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 import type { IconType } from "react-icons";
 import {
   SiAngular,
+  SiElementor,
   SiExpress,
   SiFigma,
   SiFirebase,
@@ -14,13 +15,12 @@ import {
   SiMysql,
   SiNextdotjs,
   SiNodedotjs,
-  SiPhp,
   SiReact,
   SiTailwindcss,
+  SiThreedotjs,
   SiTypescript,
   SiWordpress,
 } from "react-icons/si";
-import { FiCloud } from "react-icons/fi";
 import { VscJson, VscVscode } from "react-icons/vsc";
 import { motion } from "framer-motion";
 
@@ -32,6 +32,7 @@ import type { IconName } from "@/types";
 const iconMap: Record<IconName, IconType> = {
   react: SiReact,
   angular: SiAngular,
+  three: SiThreedotjs,
   next: SiNextdotjs,
   typescript: SiTypescript,
   tailwind: SiTailwindcss,
@@ -40,7 +41,6 @@ const iconMap: Record<IconName, IconType> = {
   express: SiExpress,
   mongodb: SiMongodb,
   mysql: SiMysql,
-  php: SiPhp,
   rest: VscJson,
   firebase: SiFirebase,
   git: SiGit,
@@ -48,7 +48,7 @@ const iconMap: Record<IconName, IconType> = {
   vscode: VscVscode,
   figma: SiFigma,
   wordpress: SiWordpress,
-  sap: FiCloud,
+  elementor: SiElementor,
 };
 
 const accents = [

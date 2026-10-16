@@ -1,6 +1,7 @@
 export type IconName =
   | "react"
   | "angular"
+  | "three"
   | "next"
   | "typescript"
   | "tailwind"
@@ -9,7 +10,6 @@ export type IconName =
   | "express"
   | "mongodb"
   | "mysql"
-  | "php"
   | "rest"
   | "firebase"
   | "git"
@@ -17,7 +17,7 @@ export type IconName =
   | "vscode"
   | "figma"
   | "wordpress"
-  | "sap";
+  | "elementor";
 
 export interface SkillItem {
   name: string;

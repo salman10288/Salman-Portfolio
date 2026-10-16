@@ -44,6 +44,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "React", icon: "react" },
       { name: "Next.js", icon: "next" },
       { name: "Angular", icon: "angular" },
+      { name: "Three.js", icon: "three" },
       { name: "TypeScript", icon: "typescript" },
       { name: "Tailwind CSS", icon: "tailwind" },
       { name: "Framer Motion", icon: "motion" },
@@ -61,7 +62,6 @@ export const skillGroups: SkillGroup[] = [
       { name: "MySQL", icon: "mysql" },
       { name: "REST APIs", icon: "rest" },
       { name: "Firebase", icon: "firebase" },
-      { name: "PHP", icon: "php" },
     ],
   },
   {
@@ -75,7 +75,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "VS Code", icon: "vscode" },
       { name: "Figma", icon: "figma" },
       { name: "WordPress", icon: "wordpress" },
-      { name: "SAP ABAP Cloud", icon: "sap" },
+      { name: "Elementor", icon: "elementor" },
     ],
   },
 ];
